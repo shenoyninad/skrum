@@ -1,4 +1,25 @@
+.attendance-div{
+    display: block;
+}
+
 .save-attendance{
-    color: red;
-    background: black;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 2px;
+    width: 48.5%;
+    height: 100%;
+    position: relative;
+    float: left;
+    margin-left: 3px;
+}
+
+.show-attendance{
+    border: 2px solid red;
+    border-radius: 10px;
+    padding: 2px;
+    width: 48.5%;
+    height: 100%;
+    position: relative;
+    float: right;
+    margin-right: 3px;
 }

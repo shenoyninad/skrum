@@ -1,10 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import SaveAttendance from './SaveAttendance';
+import ShowAttendance from './ShowAttendance'
+import Heading from './heading'
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('show-attendance'));
+ReactDOM.render(<Heading />, document.getElementById('heading'));
+ReactDOM.render(<SaveAttendance />, document.getElementById('save-attendance'));
+ReactDOM.render(<ShowAttendance />, document.getElementById('show-attendance'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
