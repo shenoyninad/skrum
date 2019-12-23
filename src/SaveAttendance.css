@@ -40,13 +40,14 @@
   text-align: center;
   cursor: pointer;
   width: 80px;
+  background: crimson;
+  color: white;
+  transition: background 0.3s;
 }
 
-.fa-save{
-  position: relative;
-  z-index: -1;
-  color: red;
-  font-size: 20px;
+.btn-save:hover{
+  background: rgb(44, 87, 136);
+  color: white;
 }
 
 .date-part{

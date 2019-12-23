@@ -14,7 +14,7 @@ class SaveAttendance extends React.Component {
       <div>
         <h5 class="save-attendance-heading">Save Attendance</h5>
         <p class="date-part">Please enter the attendance for the date : {this.state.date}</p>
-        <p class="attendance-marker">Please use <code>A=Absent</code>, <code>P=Present</code>, <code>PTO=Leave</code></p>
+        <p class="attendance-marker">Please use <code>A=Absent</code>, <code>P=Present</code></p>
         <AttendanceTable handleSave = {this.handleSave} handleChange={this.handleChange} />
       </div>
     );
@@ -34,9 +34,6 @@ class SaveAttendance extends React.Component {
     else if (e.target.value === 'a' || e.target.value === 'A') {
       e.target.style.backgroundColor = "red";
     }
-    else if (e.target.value === 'PTO' || e.target.value === 'pto') {
-      e.target.style.backgroundColor = "yellow";
-    }
   }
 }
 
@@ -54,7 +51,7 @@ class AttendanceTable extends React.Component{
             <td class="attendance-table-data row-attendance"><input className="attendance-status" id="attendance-status" onChange = {this.props.handleChange} /></td>
           </tr>
         </table>
-        <button class="btn-save" onClick={this.props.handleSave} value="ninad"><i class="fas fa-save"></i></button>
+        <button class="btn-save" onClick={this.props.handleSave}>Save</button>
       </div>
     );
   }

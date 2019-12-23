@@ -1,3 +1,46 @@
 .show-attendance-heading{
     text-align: center;
 }
+
+.show-attendance-filter-interval{
+    width: 200px;
+    margin-left: 40px;
+}
+
+.show-attendance-filter-team{
+    width: 200px;
+    margin-left: 40px;
+}
+
+.show-attendance-filter{
+    margin-bottom: 40px;
+}
+
+.show-attendance-table{
+    text-align: center;
+    margin-left: 40px;
+}
+
+.row-present{
+    width: 100px;
+}
+
+.row-absent{
+    width: 100px;
+}
+
+.row-name{
+    width: 400px;
+}
+
+.attendance-table{
+    border: 1px solid black;
+    border-radius: 6px;
+    -moz-border-radius:6px;
+    border-collapse:separate;
+}
+  
+.attendance-table-heading{
+    border: 1px solid #dddddd;
+    padding: 10px;
+}
