@@ -1,0 +1,34 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./bin/www"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.6.2",
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "convert-excel-to-json": "^1.6.1",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dateonly": "^1.2.0",
+    "express": "^4.16.4",
+    "express-fileupload": "^1.1.3-alpha.1",
+    "express-session": "^1.15.6",
+    "ldapjs": "^1.0.2",
+    "mongoose": "^5.4.12",
+    "mongoose-dateonly": "^1.0.6",
+    "nodemailer": "^5.1.1",
+    "nodemailer-smtp-transport": "^2.7.4",
+    "nodemon": "^1.19.1",
+    "passport": "^0.4.0",
+    "path": "^0.12.7",
+    "string-format": "^2.0.0",
+    "redis": "^2.8.0"
+  }
+}
