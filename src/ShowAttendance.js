@@ -1,10 +1,23 @@
 import React from 'react'
 import './ShowAttendance.css';
 import ShowAttendanceTable from './ShowAttendanceTable';
-
+import Axios from 'axios'
 class ShowAttendance extends React.Component {
   constructor(props){
     super(props);
+  }
+  componentDidMount = () => { 
+    Axios({
+      method :'get',
+      url: 'http://localhost:3002/scrumd/SG078343',
+      config: {headers : {'Content-Type' : 'application/json'}}
+    }).then( response => {
+    //   for(var i = 0; i<response.data.length; i++){
+    //   this.setState({batches:[...this.state.batches,response.data[i]]  });
+    //   }
+      console.log(response)
+    });
+
   }
 
   render(){
