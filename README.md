@@ -1,4 +1,7 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## SKRUM
+
+Application built to make the process of attendance easy for an agile team.
+Gives the project manager an option to update the attendance for a particular date and then view them reports by different intervals.
 
 ## Available Scripts
 
