@@ -30,7 +30,6 @@
 
 .btn-save{
   background: none;
-  border: 1px solid black;
   border-radius: 10px;
   padding: 10px;
   margin-top: 20px;
@@ -40,13 +39,14 @@
   text-align: center;
   cursor: pointer;
   width: 80px;
-  background: crimson;
+  background: rgb(37, 129, 172);
   color: white;
-  transition: background 0.3s;
+  transition: box-shadow 0.5s;
+  
 }
 
 .btn-save:hover{
-  background: rgb(44, 87, 136);
+  box-shadow: inset 7.1em 0 0 0 rgb(238, 14, 7);
   color: white;
 }
 

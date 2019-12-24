@@ -4,7 +4,10 @@ import './heading.css'
 class heading extends React.Component{
     render(){
         return(
-            <h1 class="heading">skrum</h1>
+            <div>
+                <h1 class="heading">skrum</h1>
+                <button class="btn-login">Login</button>
+            </div>
         );
     }
 }

@@ -1,6 +1,31 @@
 .heading{
     font-family: 'Sniglet', cursive;
-    color: rgb(14, 14, 116);
+    color: rgb(37, 129, 172);
     font-size: 35px;
     margin-left: 20px;
+    display: inline-block;
+}
+
+.btn-login{
+    background: rgb(37, 129, 172);
+    color: white;
+    width: 70px;
+    height: 35px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: inline-block;
+    margin-left: 88%;
+    transition: box-shadow 0.5s;
+    overflow: hidden;
+}
+
+/* .btn-login:hover{
+    background: rgb(44, 87, 136);
+    color: white;
+} */
+
+.btn-login:hover,
+.btn-login:focus {
+  box-shadow: inset 6.5em 0 0 0 rgb(209, 96, 3);
+  color: white;
 }

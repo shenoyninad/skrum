@@ -44,3 +44,19 @@
     border: 1px solid #dddddd;
     padding: 10px;
 }
+
+.btn-generate-report{
+    color: white;
+    background: rgb(37, 129, 172);
+    width: 130px;
+    height: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 40px 0 0 40px;
+    transition: box-shadow 0.5s;
+}
+
+.btn-generate-report:hover{
+    box-shadow: inset 12em 0 0 0 rgb(132, 5, 216);
+    color: white;
+  }

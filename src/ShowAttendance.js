@@ -26,7 +26,7 @@ class ShowAttendance extends React.Component {
           </select>
         </div>
         <ShowAttendanceTable />
-        
+        <button class="btn-generate-report">Generate Report</button>
       </div>
     );
   }
