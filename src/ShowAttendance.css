@@ -60,3 +60,15 @@
     box-shadow: inset 12em 0 0 0 rgb(132, 5, 216);
     color: white;
   }
+
+.show-attendance-filter-date{
+    margin-left: 15px;
+    border-radius: 10px;
+    border: 1px solid black;
+    display: none;
+}
+
+.show-attendance-filter-date-label{
+    display: none;
+    margin-left: 20px;
+}

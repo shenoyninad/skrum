@@ -5,6 +5,8 @@ import Axios from 'axios'
 class ShowAttendance extends React.Component {
   constructor(props){
     super(props);
+
+    this.handleIntervalChange = this.handleIntervalChange.bind(this);
   }
   componentDidMount = () => { 
     Axios({
@@ -20,23 +22,38 @@ class ShowAttendance extends React.Component {
 
   }
 
+  handleIntervalChange(e){
+    if(e.target.value == "date")
+    {
+      document.getElementById("show-attendance-filter-date").style.display = "inline";
+      document.getElementById("show-attendance-filter-date-label").style.display = "inline";
+    }
+    else{
+      document.getElementById("show-attendance-filter-date").style.display = "none";
+      document.getElementById("show-attendance-filter-date-label").style.display = "none";
+    }
+
+  }
+
   render(){
     return (
       <div class="show-partition">
         <h5 class="show-attendance-heading">Leaderboard</h5>
         <div class="show-attendance-filter">
-          <select class="show-attendance-filter-interval">
-            <option>All time</option>
-            <option>by Month</option>
-            <option>by Iteration</option>
-            <option>by Week</option>
+          <select class="show-attendance-filter-interval" onChange={this.handleIntervalChange} >
+            <option value="time">All time</option>
+            <option value="month">by Month</option>
+            <option value="iteration">by Iteration</option>
+            <option value="week">by Week</option>
+            <option value="date">By Date</option>
           </select>
           <select class="show-attendance-filter-team">
-            <option>All</option>
-            <option>Team Biju</option>
-            <option>Team Ankit</option>
-            <option>Team Vinay</option>
+            <option value="all">All</option>
+            <option value="Biju">Team Biju</option>
+            <option value="ankit">Team Ankit</option>
+            <option value="vinay">Team Vinay</option>
           </select>
+          <label class="show-attendance-filter-date-label" id="show-attendance-filter-date-label">Select a date: </label><input class="show-attendance-filter-date" id="show-attendance-filter-date" type="date" />
         </div>
         <ShowAttendanceTable />
         <button class="btn-generate-report">Generate Report</button>
