@@ -18,11 +18,12 @@ mongoose = require('mongoose').set('debug', true);
 mongoose.connect("mongodb://test:test123@test-shard-00-00-qy33i.mongodb.net:27017,test-shard-00-01-qy33i.mongodb.net:27017,test-shard-00-02-qy33i.mongodb.net:27017/Skrum?ssl=true&replicaSet=Test-shard-0&authSource=admin&retryWrites=true", {useNewUrlParser:true});
 const myModels = require('./models.js');
 const Scrumd = myModels.scrumd
+const Dlist =myModels.dlist
 
 
-app.get("/scrumd/:AID", (req, res) => {
+app.get("/namelist/:AID", (req, res) => {
     var aid = req.params.AID;
-    Scrumd.find({"AID":aid}, function(err,user){
+    Scrumd.find({}, function(err,user){
         if(err){
           console.log(err);
         }
@@ -39,4 +40,29 @@ app.get("/scrumd/:AID", (req, res) => {
      else
      console.log("connected")
    })
+
+   app.get("/statlist/:date", (req, res) => {
+    var date = req.params.date;
+    Dlist.find({"Date":date}, function(err,user){
+        if(err){
+          console.log(err);
+        }
+        else {
+          console.log(user);
+          res.send(user);
+        }
+      });
+  });
+
+  app.post("/savetodb", (req, res)=>{
+    array = req.body.package;
+    const dlist = new Dlist({
+       Date: new Date(),
+       AttArr:array
+    });
+    
+    dlist.save().then(()=>{
+        console.log("Attendance succesfully saved");
+    });
   
+  });

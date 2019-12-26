@@ -20,6 +20,15 @@ class ShowAttendance extends React.Component {
       console.log(response)
     });
 
+    Axios({
+      method :'get',
+      url: 'http://localhost:3002/statlist/25-12-2019',
+      config: {headers : {'Content-Type' : 'application/json'}}
+    }).then( response => {
+             
+      console.log(response)
+    });
+
   }
 
   handleIntervalChange(e){

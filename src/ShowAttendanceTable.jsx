@@ -3,12 +3,20 @@ import './ShowAttendance.css';
 
 
 class ShowAttendanceTable extends React.Component{
-
+    constructor(props) {
+        super(props);
+        this.state = {
+           
+        };
+       
+        
+        }
 
     render(){
         return(
             <div class="show-attendance-table">
                 <table class="attendance-table">
+                  
                     <tr class="attendance-table-row"> 
                         <th class="attendance-table-heading row-name">
                             Name
@@ -20,6 +28,7 @@ class ShowAttendanceTable extends React.Component{
                             Absent
                         </th>
                     </tr>
+                    
                 </table>
             </div>
         );
