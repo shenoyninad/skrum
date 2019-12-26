@@ -1,4 +1,4 @@
-## SKRUM
+## skrum
 
 Application built to make the process of attendance easy for an agile team.
 Gives the project manager an option to update the attendance for a particular date and then view them reports by different intervals.
