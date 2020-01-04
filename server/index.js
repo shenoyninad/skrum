@@ -58,7 +58,7 @@ app.get("/namelist/:AID", (req, res) => {
     array = req.body.package;
     const dlist = new Dlist({
        //Date: moment().format('DD MM YYYY'),
-       Date:new Date,
+       Date:new Date(),
        AttArr:array
     });
     dlist.save().then(()=>{

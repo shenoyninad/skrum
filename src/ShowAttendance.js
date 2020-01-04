@@ -4,10 +4,14 @@ import ShowAttendanceTable from './ShowAttendanceTable';
 import Axios from 'axios'
 var fromd
 var tod
+var namelist=[];
 class ShowAttendance extends React.Component {
   constructor(props){
     super(props);
-
+   this.state={
+     finalist:[],
+     days:0
+   }
     this.handleIntervalChange = this.handleIntervalChange.bind(this);
     this.extractDate=this.extractDate.bind(this);
     this.action=this.action.bind(this);
@@ -26,6 +30,8 @@ class ShowAttendance extends React.Component {
 
   }
   action(){
+    namelist=[];
+    
     Axios({
       method :'get',
       url: 'http://localhost:3002/getbydate',
@@ -34,7 +40,30 @@ class ShowAttendance extends React.Component {
       
     }).then( response => {
              
-      console.log(response)
+      
+       response.data[0].AttArr.forEach(element => {
+        namelist.push({Name:element.Name,DaysPresent:0,AID:element.AID})
+      });
+     
+        
+        var i;
+       response.data.forEach(element => {
+          i=-1;
+         element.AttArr.forEach(e=>{
+        
+          i++
+          if(e.Present==true)
+         { 
+           namelist[i].DaysPresent++
+         }
+         });
+       });
+    
+       this.setState({finalist: []});
+       this.setState({days:response.data.length});
+      for(var i = 0; i<namelist.length; i++){
+        this.setState({finalist:[...this.state.finalist,namelist[i]]});
+      }
     });
   }
 
@@ -91,11 +120,13 @@ class ShowAttendance extends React.Component {
             <option value="ankit">Team Ankit</option>
             <option value="vinay">Team Vinay</option>
           </select>
+          <br />
           <label class="show-attendance-filter-date-label" id="show-attendance-filter-date-label">FROM date: </label><input class="show-attendance-filter-date" name="fromDate" id="show-attendance-filter-date" type="date" onChange={this.extractDate} />
           <label class="show-attendance-filter-date-labelx" id="show-attendance-filter-date-labelx">TO date: </label><input class="show-attendance-filter-datex" name="toDate" id="show-attendance-filter-datex" type="date" onChange={this.extractDate} />
         </div>
-        <ShowAttendanceTable />
         <button class="btn-generate-report" onClick={this.action}>Generate Report</button>
+        <ShowAttendanceTable list={this.state.finalist} days={this.state.days}/>
+        
       </div>
     );
   }

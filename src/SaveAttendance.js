@@ -20,7 +20,7 @@ class SaveAttendance extends React.Component {
       
       response.data.forEach(element => {
         
-        finalarr.push({AID:element.AID,Name:element.Name,Present:"NA"})
+        finalarr.push({AID:element.AID,Name:element.Name,Present:false})
 
       });
       console.log("array ready for present/not present",finalarr);
