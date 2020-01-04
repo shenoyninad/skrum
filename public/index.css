@@ -5,12 +5,13 @@
 .save-attendance{
     border: 2px solid black;
     border-radius: 10px;
-    padding: 2px;
+    padding: 5px;
     width: 48.5%;
     height: 800px;
     position: relative;
     float: left;
     margin-left: 3px;
+    overflow-y:scroll;
 }
 
 .show-attendance{
