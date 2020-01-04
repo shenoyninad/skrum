@@ -1,9 +1,9 @@
 const express = require('express');
 const bodyParser = require("body-parser"); // parse json
-
 const app = express();
 var session = require('express-session');
 var cors = require('cors')
+var moment=require('moment');
 
 
 
@@ -57,12 +57,26 @@ app.get("/namelist/:AID", (req, res) => {
   app.post("/savetodb", (req, res)=>{
     array = req.body.package;
     const dlist = new Dlist({
-       Date: new Date(),
+       //Date: moment().format('DD MM YYYY'),
+       Date:new Date,
        AttArr:array
     });
-    
     dlist.save().then(()=>{
         console.log("Attendance succesfully saved");
     });
-  
+     res.send("done");
+  });
+
+  app.get("/getbydate", (req, res) => {
+    var from = req.query.fromd;
+    var to=req.query.tod
+    Dlist.find({"Date":{"$gte":from,"$lte":to}}, function(err,user){
+        if(err){
+          console.log(err);
+        }
+        else {
+          console.log(user);
+          res.send(user);
+        }
+      });
   });

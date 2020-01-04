@@ -68,7 +68,19 @@
     display: none;
 }
 
+.show-attendance-filter-datex{
+    margin-left: 15px;
+    border-radius: 10px;
+    border: 1px solid black;
+    display: none;
+}
+
 .show-attendance-filter-date-label{
+    display: none;
+    margin-left: 20px;
+}
+
+.show-attendance-filter-date-labelx{
     display: none;
     margin-left: 20px;
 }

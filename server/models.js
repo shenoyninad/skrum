@@ -8,7 +8,7 @@ Manager:String,
 })
 
 const DateListSchema =new Schema({
-Date:String,
+Date:Date,
 AttArr:[{
 AID:String,
 Present:Boolean,

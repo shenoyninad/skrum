@@ -2,44 +2,73 @@ import React from 'react'
 import './ShowAttendance.css';
 import ShowAttendanceTable from './ShowAttendanceTable';
 import Axios from 'axios'
+var fromd
+var tod
 class ShowAttendance extends React.Component {
   constructor(props){
     super(props);
 
     this.handleIntervalChange = this.handleIntervalChange.bind(this);
+    this.extractDate=this.extractDate.bind(this);
+    this.action=this.action.bind(this);
   }
   componentDidMount = () => { 
-    Axios({
-      method :'get',
-      url: 'http://localhost:3002/scrumd/SG078343',
-      config: {headers : {'Content-Type' : 'application/json'}}
-    }).then( response => {
-    //   for(var i = 0; i<response.data.length; i++){
-    //   this.setState({batches:[...this.state.batches,response.data[i]]  });
-    //   }
-      console.log(response)
-    });
+   
 
+    // Axios({
+    //   method :'get',
+    //   url: 'http://localhost:3002/statlist/25-12-2019',
+    //   config: {headers : {'Content-Type' : 'application/json'}}
+    // }).then( response => {
+             
+    //  console.log(response)
+    // });
+
+  }
+  action(){
     Axios({
       method :'get',
-      url: 'http://localhost:3002/statlist/25-12-2019',
+      url: 'http://localhost:3002/getbydate',
+      params:{fromd,tod},
       config: {headers : {'Content-Type' : 'application/json'}}
+      
     }).then( response => {
              
       console.log(response)
     });
-
   }
 
+
+  extractDate(e){
+   if(e.target.name=="fromDate") 
+    {
+      console.log("FROM-DATE")
+       fromd=new Date(e.target.value)
+    console.log(fromd);
+    
+    }
+    else
+    {  console.log("TO-DATE")
+      tod=new Date(e.target.value)
+      tod.setDate(tod.getDate()+1)
+      console.log(tod)
+      
+    }
+  }
   handleIntervalChange(e){
     if(e.target.value == "date")
     {
       document.getElementById("show-attendance-filter-date").style.display = "inline";
       document.getElementById("show-attendance-filter-date-label").style.display = "inline";
+      document.getElementById("show-attendance-filter-datex").style.display = "inline";
+      document.getElementById("show-attendance-filter-date-labelx").style.display = "inline";
+     
     }
     else{
       document.getElementById("show-attendance-filter-date").style.display = "none";
       document.getElementById("show-attendance-filter-date-label").style.display = "none";
+      document.getElementById("show-attendance-filter-datex").style.display = "none";
+      document.getElementById("show-attendance-filter-date-labelx").style.display = "none";
     }
 
   }
@@ -62,10 +91,11 @@ class ShowAttendance extends React.Component {
             <option value="ankit">Team Ankit</option>
             <option value="vinay">Team Vinay</option>
           </select>
-          <label class="show-attendance-filter-date-label" id="show-attendance-filter-date-label">Select a date: </label><input class="show-attendance-filter-date" id="show-attendance-filter-date" type="date" />
+          <label class="show-attendance-filter-date-label" id="show-attendance-filter-date-label">FROM date: </label><input class="show-attendance-filter-date" name="fromDate" id="show-attendance-filter-date" type="date" onChange={this.extractDate} />
+          <label class="show-attendance-filter-date-labelx" id="show-attendance-filter-date-labelx">TO date: </label><input class="show-attendance-filter-datex" name="toDate" id="show-attendance-filter-datex" type="date" onChange={this.extractDate} />
         </div>
         <ShowAttendanceTable />
-        <button class="btn-generate-report">Generate Report</button>
+        <button class="btn-generate-report" onClick={this.action}>Generate Report</button>
       </div>
     );
   }

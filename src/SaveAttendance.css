@@ -7,11 +7,13 @@
   border-radius: 6px;
   -moz-border-radius:6px;
   border-collapse:separate;
+  /* overflow-x:scroll; */
 }
 
 .attendance-table-heading{
   border: 1px solid #dddddd;
   padding: 10px;
+  /* overflow:scroll; */
 }
 
 .attendance-table-data{
@@ -22,6 +24,7 @@
 
 .save-partition{
   margin-left: 20px;
+  /* overflow: scroll; */
 }
 
 .row-name{
