@@ -2,6 +2,7 @@ import React from 'react'
 import './ShowAttendance.css';
 import ShowAttendanceTable from './ShowAttendanceTable';
 import Axios from 'axios'
+import { CSVLink } from "react-csv";
 var fromd
 var tod
 var namelist=[];
@@ -124,6 +125,7 @@ class ShowAttendance extends React.Component {
           <label class="show-attendance-filter-date-label" id="show-attendance-filter-date-label">FROM date: </label><input class="show-attendance-filter-date" name="fromDate" id="show-attendance-filter-date" type="date" onChange={this.extractDate} />
           <label class="show-attendance-filter-date-labelx" id="show-attendance-filter-date-labelx">TO date: </label><input class="show-attendance-filter-datex" name="toDate" id="show-attendance-filter-datex" type="date" onChange={this.extractDate} />
         </div>
+        <button class="btn-generate-report"><CSVLink data={this.state.finalist} filename={"my-file.csv"}>Download excel</CSVLink></button>
         <button class="btn-generate-report" onClick={this.action}>Generate Report</button>
         <ShowAttendanceTable list={this.state.finalist} days={this.state.days}/>
         
