@@ -23,7 +23,7 @@
     "ldapjs": "^1.0.2",
     "mongoose": "^5.4.12",
     "mongoose-dateonly": "^1.0.6",
-    "nodemailer": "^5.1.1",
+    "nodemailer": "^6.4.16",
     "nodemailer-smtp-transport": "^2.7.4",
     "nodemon": "^1.19.1",
     "passport": "^0.4.0",
